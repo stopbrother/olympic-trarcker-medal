@@ -4,31 +4,49 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
+    <div className='container'>
+      <h1>2024 파리 올림픽 메달 트래커</h1>
+      <form className='input-group'>
+        <div className='country'>
+          <label htmlFor="">국가명</label>
+          <input type="text" placeholder='국가 입력' />
+        </div>
+        <div className='gold-medal'>
+          <label htmlFor="">금메달</label>
+          <input type="text" />
+        </div>
+        <div className='silver-medal'>
+          <label htmlFor="">은메달</label>
+          <input type="text" />
+        </div>
+        <div className='bronze-medal'>
+          <label htmlFor="">동메달</label>
+          <input type="text" />
+        </div>
+        <button>국가 추가</button>
+        <button>메달 추가</button>
+      </form>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <div className='medal-list-title'>
+          <span>국가명</span>
+          <span>금메달</span>
+          <span>은메달</span>
+          <span>동메달</span>
+          <span>액션</span>
+        </div>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li>
+            <button>삭제</button>
+          </li>
+        </ul>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>    
   )
 }
 
