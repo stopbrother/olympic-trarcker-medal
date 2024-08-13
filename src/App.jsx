@@ -23,7 +23,29 @@ function App() {
     setCountries([...countries, newCountry]);
     console.log(countries);
   };
-  
+
+  const handleUpdateCountry = (event) => {
+    event.preventDefault();    
+    const countryToupdate = countries.map((countrited) => {
+      if(countrited.name === country) {
+        const updateMedal = {
+          ...countrited,
+          gold : gold,
+          silver, silver,
+          bronze, bronze
+        };
+        return updateMedal;
+      } else {
+        alert ("리스트에 없는 나라입니다.");
+        return countrited;
+      }
+    });    
+    setCountries(countryToupdate);
+  };
+
+  const handleDeleteCountry = (id) => {
+    
+  };
 
   const handleInputCountry = (event) => {
     setCountry(event.target.value);
@@ -67,7 +89,7 @@ function App() {
           <input onChange={handleInputBronze} value={bronze} type="text" />
         </div>
         <button onClick={handleAddCountry} className='add-button'>국가 추가</button>
-        <button className='update-button'>메달 추가</button>
+        <button onClick={handleUpdateCountry} className='update-button'>메달 추가</button>
       </form>
       <div>
         <div className='medal-list-title'>
