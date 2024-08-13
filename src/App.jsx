@@ -43,8 +43,8 @@ function App() {
     setCountries(countryToupdate);
   };
 
-  const handleDeleteCountry = (id) => {
-    
+  const handleDeleteCountry = (name) => {
+    setCountries(countries.filter((country) => country.name !== name));
   };
 
   const handleInputCountry = (event) => {
@@ -106,7 +106,7 @@ function App() {
             <li>{country.silver}</li>
             <li>{country.bronze}</li>
             <li>
-              <button className='delete-button'>삭제</button>
+              <button onClick={() => handleDeleteCountry(country.name)} className='delete-button'>삭제</button>
             </li>
         </ul>
         ))}
