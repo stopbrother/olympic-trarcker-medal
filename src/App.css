@@ -5,8 +5,44 @@
   background-color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  text-align: center;
 }
 .input-group {
   display: flex;
   text-align: center;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  word-break: keep-all;
+}
+.add-button,
+.update-button {
+  background-color: yellow;
+  color: #000;
+  padding: 6px;
+  border: none;
+  border-radius: 5px;
+}
+.add-button {
+  margin-right: 3px;
+}
+
+.medal-list-title {
+  display: flex;
+  justify-content: space-around;
+  background-color: blue;
+  color: #fff;
+  padding: 10px 0;
+  font-weight: bold;
+}
+ul {
+  list-style: none;
+  display: flex;
+}
+.delete-button {
+  background-color: red;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px;
 }

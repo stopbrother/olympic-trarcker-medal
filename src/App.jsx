@@ -25,8 +25,8 @@ function App() {
           <label htmlFor="">동메달</label>
           <input type="text" />
         </div>
-        <button>국가 추가</button>
-        <button>메달 추가</button>
+        <button className='add-button'>국가 추가</button>
+        <button className='update-button'>메달 추가</button>
       </form>
       <div>
         <div className='medal-list-title'>
@@ -42,7 +42,7 @@ function App() {
           <li></li>
           <li></li>
           <li>
-            <button>삭제</button>
+            <button className='delete-button'>삭제</button>
           </li>
         </ul>
       </div>
