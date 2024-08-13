@@ -15,7 +15,7 @@ function App() {
   const handleAddCountry = (event) => {
     event.preventDefault();
     const newCountry = {
-      country : country,
+      name : country,
       gold : gold,
       silver : silver,
       bronze : bronze
@@ -77,7 +77,17 @@ function App() {
           <span>동메달</span>
           <span>액션</span>
         </div>
-
+        {countries.map((country) => (
+          <ul key={country.name}>
+            <li>{country.name}</li>
+            <li>{country.gold}</li>
+            <li>{country.silver}</li>
+            <li>{country.bronze}</li>
+            <li>
+              <button className='delete-button'>삭제</button>
+            </li>
+        </ul>
+        ))}
       </div>
     </div>    
   )
