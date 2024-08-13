@@ -4,6 +4,47 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+  const [countries, setCountries] = useState([]);
+
+
+  const [country, setCountry] = useState("");
+  const [gold, setGold] = useState("0");
+  const [silver, setSilver] = useState("0");
+  const [bronze, setBronze] = useState("0");
+
+  const handleAddCountry = (event) => {
+    event.preventDefault();
+    const newCountry = {
+      country : country,
+      gold : gold,
+      silver : silver,
+      bronze : bronze
+    }
+    setCountries([...countries, newCountry]);
+    console.log(countries);
+  };
+  
+
+  const handleInputCountry = (event) => {
+    setCountry(event.target.value);
+    console.log(country);
+  }
+  const handleInputGold = (event) => {
+    setGold(event.target.value);
+    console.log(gold);
+  }
+  const handleInputSilver = (event) => {
+    setSilver(event.target.value);
+    console.log(silver);
+  }
+  const handleInputBronze = (event) => {
+    setBronze(event.target.value);
+    console.log(bronze);
+  }
+
+  // const onClickAddSubmit = () => {
+
+  // }
 
   return (
     <div className='container'>
@@ -11,21 +52,21 @@ function App() {
       <form className='input-group'>
         <div className='country'>
           <label htmlFor="">국가명</label>
-          <input type="text" placeholder='국가 입력' />
+          <input onChange={handleInputCountry} value={country} type="text" placeholder='국가 입력' />          
         </div>
         <div className='gold-medal'>
           <label htmlFor="">금메달</label>
-          <input type="text" />
+          <input onChange={handleInputGold} value={gold} type="text" />
         </div>
         <div className='silver-medal'>
           <label htmlFor="">은메달</label>
-          <input type="text" />
+          <input onChange={handleInputSilver} value={silver} type="text" />
         </div>
         <div className='bronze-medal'>
           <label htmlFor="">동메달</label>
-          <input type="text" />
+          <input onChange={handleInputBronze} value={bronze} type="text" />
         </div>
-        <button className='add-button'>국가 추가</button>
+        <button onClick={handleAddCountry} className='add-button'>국가 추가</button>
         <button className='update-button'>메달 추가</button>
       </form>
       <div>
@@ -36,15 +77,7 @@ function App() {
           <span>동메달</span>
           <span>액션</span>
         </div>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li>
-            <button className='delete-button'>삭제</button>
-          </li>
-        </ul>
+
       </div>
     </div>    
   )
