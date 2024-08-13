@@ -21,7 +21,6 @@ function App() {
       bronze : bronze
     }
     setCountries([...countries, newCountry]);
-    console.log(countries);
   };
 
   const handleUpdateCountry = (event) => {
@@ -48,25 +47,18 @@ function App() {
   };
 
   const handleInputCountry = (event) => {
-    setCountry(event.target.value);
-    console.log(country);
+    setCountry(event.target.value);    
   }
   const handleInputGold = (event) => {
-    setGold(event.target.value);
-    console.log(gold);
+    setGold(event.target.value);    
   }
   const handleInputSilver = (event) => {
-    setSilver(event.target.value);
-    console.log(silver);
+    setSilver(event.target.value);    
   }
   const handleInputBronze = (event) => {
-    setBronze(event.target.value);
-    console.log(bronze);
+    setBronze(event.target.value);    
   }
 
-  // const onClickAddSubmit = () => {
-
-  // }
 
   return (
     <div className='container'>
@@ -89,7 +81,7 @@ function App() {
           <input onChange={handleInputBronze} value={bronze} type="text" />
         </div>
         <button onClick={handleAddCountry} className='add-button'>국가 추가</button>
-        <button onClick={handleUpdateCountry} className='update-button'>메달 추가</button>
+        <button onClick={handleUpdateCountry} className='update-button'>업데이트</button>
       </form>
       <div>
         <div className='medal-list-title'>
