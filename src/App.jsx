@@ -1,110 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import CountrySection from "./components/CountrySection";
 
 function App() {
-  const [countries, setCountries] = useState([]);
-
-
-  const [country, setCountry] = useState("");
-  const [gold, setGold] = useState("0");
-  const [silver, setSilver] = useState("0");
-  const [bronze, setBronze] = useState("0");
-
-  const handleAddCountry = (event) => {
-    event.preventDefault();
-    const newCountry = {
-      name : country,
-      gold : gold,
-      silver : silver,
-      bronze : bronze
-    }
-    setCountries([...countries, newCountry]);
-  };
-
-  const handleUpdateCountry = (event) => {
-    event.preventDefault();    
-    const countryToupdate = countries.map((countrited) => {
-      if(countrited.name === country) {
-        const updateMedal = {
-          ...countrited,
-          gold : gold,
-          silver, silver,
-          bronze, bronze
-        };
-        return updateMedal;
-      } else {
-        alert ("리스트에 없는 나라입니다.");
-        return countrited;
-      }
-    });    
-    setCountries(countryToupdate);
-  };
-
-  const handleDeleteCountry = (name) => {
-    setCountries(countries.filter((country) => country.name !== name));
-  };
-
-  const handleInputCountry = (event) => {
-    setCountry(event.target.value);    
-  }
-  const handleInputGold = (event) => {
-    setGold(event.target.value);    
-  }
-  const handleInputSilver = (event) => {
-    setSilver(event.target.value);    
-  }
-  const handleInputBronze = (event) => {
-    setBronze(event.target.value);    
-  }
-
-
   return (
-    <div className='container'>
+    <div className="container">
       <h1>2024 파리 올림픽 메달 트래커</h1>
-      <form className='input-group'>
-        <div className='country'>
-          <label htmlFor="">국가명</label>
-          <input onChange={handleInputCountry} value={country} type="text" placeholder='국가 입력' />          
-        </div>
-        <div className='gold-medal'>
-          <label htmlFor="">금메달</label>
-          <input onChange={handleInputGold} value={gold} type="text" />
-        </div>
-        <div className='silver-medal'>
-          <label htmlFor="">은메달</label>
-          <input onChange={handleInputSilver} value={silver} type="text" />
-        </div>
-        <div className='bronze-medal'>
-          <label htmlFor="">동메달</label>
-          <input onChange={handleInputBronze} value={bronze} type="text" />
-        </div>
-        <button onClick={handleAddCountry} className='add-button'>국가 추가</button>
-        <button onClick={handleUpdateCountry} className='update-button'>업데이트</button>
-      </form>
-      <div>
-        <div className='medal-list-title'>
-          <span>국가명</span>
-          <span>금메달</span>
-          <span>은메달</span>
-          <span>동메달</span>
-          <span>액션</span>
-        </div>
-        {countries.map((country) => (
-          <ul key={country.name}>
-            <li>{country.name}</li>
-            <li>{country.gold}</li>
-            <li>{country.silver}</li>
-            <li>{country.bronze}</li>
-            <li>
-              <button onClick={() => handleDeleteCountry(country.name)} className='delete-button'>삭제</button>
-            </li>
-        </ul>
-        ))}
-      </div>
-    </div>    
-  )
+      <CountrySection />
+    </div>
+  );
 }
 
-export default App
+export default App;
